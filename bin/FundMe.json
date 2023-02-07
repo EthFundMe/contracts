@@ -1,0 +1,473 @@
+{
+    "contractName": "FundMe",
+    "abi": [
+        {
+            "inputs": [],
+            "name": "EthFundMe__Unauthorized",
+            "type": "error"
+        },
+        {
+            "inputs": [],
+            "name": "FEE",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_fee",
+                    "type": "uint256"
+                }
+            ],
+            "name": "setFEE",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"EthFundMe__Unauthorized\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_fee\",\"type\":\"uint256\"}],\"name\":\"setFEE\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"errors\":{\"EthFundMe__Unauthorized()\":[{\"custom:contact\":\"team@ethfund.me\"}]},\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"errors\":{\"EthFundMe__Unauthorized()\":[{\"notice\":\"This contract allows users to create campaigns on-chain\"}]},\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/franzquarshie/source/ethfundme/FundMe.sol\":\"FundMe\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/franzquarshie/source/ethfundme/FundMe.sol\":{\"keccak256\":\"0xfe3de0ffe8ed0717b2654fac7da2fe6e9a34126b2b6c9523586c640671f7406a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c439cb740dc9a1c185f869d56ad192b067140a20d9ada27c7e41833fb7c95d8c\",\"dweb:/ipfs/QmbZ65iFpUv97Z6LjZVh5LMH3rTrVDyCzNxfp8LtfyxSCH\"]}},\"version\":1}",
+    "bytecode": "6080604052680107ad8f556c6c0000600055600180546001600160a01b03191673b11a8eb867df90f09adbeb4f550e1f8f66f1c5f217905534801561004357600080fd5b5060df806100526000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c806316dd1cbc146037578063c57981b5146048575b600080fd5b604660423660046091565b6062565b005b605060005481565b60405190815260200160405180910390f35b6001546001600160a01b03163314608c57604051632cd8447b60e01b815260040160405180910390fd5b600055565b60006020828403121560a257600080fd5b503591905056fea2646970667358221220c763a8305d218484e24d603a391eb72baa2650ceb9e4695b9374120e9d0c7d6c64736f6c63430008110033",
+    "deployedBytecode": "6080604052348015600f57600080fd5b506004361060325760003560e01c806316dd1cbc146037578063c57981b5146048575b600080fd5b604660423660046091565b6062565b005b605060005481565b60405190815260200160405180910390f35b6001546001600160a01b03163314608c57604051632cd8447b60e01b815260040160405180910390fd5b600055565b60006020828403121560a257600080fd5b503591905056fea2646970667358221220c763a8305d218484e24d603a391eb72baa2650ceb9e4695b9374120e9d0c7d6c64736f6c63430008110033",
+    "sourceMap": "198:341:1:-:0;;;242:20;221:41;;268:57;;;-1:-1:-1;;;;;;268:57:1;283:42;268:57;;;198:341;;;;;;;;;;;;;;;;",
+    "deployedSourceMap": "198:341:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;332:72;;;;;;:::i;:::-;;:::i;:::-;;221:41;;;;;;;;;345:25:2;;;333:2;318:18;221:41:1;;;;;;;332:72;457:4;;-1:-1:-1;;;;;457:4:1;443:10;:18;439:81;;484:25;;-1:-1:-1;;;484:25:1;;;;;;;;;;;439:81;387:3:::1;:10:::0;332:72::o;14:180:2:-;73:6;126:2;114:9;105:7;101:23;97:32;94:52;;;142:1;139;132:12;94:52;-1:-1:-1;165:23:2;;14:180;-1:-1:-1;14:180:2:o",
+    "sourcePath": "/Users/franzquarshie/source/ethfundme/FundMe.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.17+commit.8df45f5f"
+    },
+    "ast": {
+        "absolutePath": "/Users/franzquarshie/source/ethfundme/FundMe.sol",
+        "exportedSymbols": {
+            "EthFundMe__Unauthorized": [
+                421
+            ],
+            "FundMe": [
+                453
+            ]
+        },
+        "id": 454,
+        "license": "MIT",
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 418,
+                "literals": [
+                    "solidity",
+                    "^",
+                    "0.8",
+                    ".17"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "34:24:1"
+            },
+            {
+                "documentation": {
+                    "id": 419,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "59:104:1",
+                    "text": "@notice This contract allows users to create campaigns on-chain\n @custom:contact team@ethfund.me"
+                },
+                "errorSelector": "2cd8447b",
+                "id": 421,
+                "name": "EthFundMe__Unauthorized",
+                "nameLocation": "170:23:1",
+                "nodeType": "ErrorDefinition",
+                "parameters": {
+                    "id": 420,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "193:2:1"
+                },
+                "src": "164:32:1"
+            },
+            {
+                "abstract": false,
+                "baseContracts": [],
+                "canonicalName": "FundMe",
+                "contractDependencies": [],
+                "contractKind": "contract",
+                "fullyImplemented": true,
+                "id": 453,
+                "linearizedBaseContracts": [
+                    453
+                ],
+                "name": "FundMe",
+                "nameLocation": "207:6:1",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "constant": false,
+                        "functionSelector": "c57981b5",
+                        "id": 424,
+                        "mutability": "mutable",
+                        "name": "FEE",
+                        "nameLocation": "236:3:1",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 453,
+                        "src": "221:41:1",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                        },
+                        "typeName": {
+                            "id": 422,
+                            "name": "uint256",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "221:7:1",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "value": {
+                            "hexValue": "3139303030303030303030303030303030303030",
+                            "id": 423,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "242:20:1",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_rational_19000000000000000000_by_1",
+                                "typeString": "int_const 19000000000000000000"
+                            },
+                            "value": "19000000000000000000"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "constant": false,
+                        "id": 427,
+                        "mutability": "mutable",
+                        "name": "MTNR",
+                        "nameLocation": "276:4:1",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 453,
+                        "src": "268:57:1",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                        },
+                        "typeName": {
+                            "id": 425,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "268:7:1",
+                            "stateMutability": "nonpayable",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                            }
+                        },
+                        "value": {
+                            "hexValue": "307842313141386562383637646639304630396144626562344635353065316638663636463163356632",
+                            "id": 426,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "283:42:1",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                            },
+                            "value": "0xB11A8eb867df90F09aDbeb4F550e1f8f66F1c5f2"
+                        },
+                        "visibility": "internal"
+                    },
+                    {
+                        "body": {
+                            "id": 438,
+                            "nodeType": "Block",
+                            "src": "377:27:1",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "id": 436,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 434,
+                                            "name": "FEE",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 424,
+                                            "src": "387:3:1",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_uint256",
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "id": 435,
+                                            "name": "_fee",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 429,
+                                            "src": "393:4:1",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_uint256",
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "src": "387:10:1",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "id": 437,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "387:10:1"
+                                }
+                            ]
+                        },
+                        "functionSelector": "16dd1cbc",
+                        "id": 439,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [
+                            {
+                                "id": 432,
+                                "kind": "modifierInvocation",
+                                "modifierName": {
+                                    "id": 431,
+                                    "name": "isOwner",
+                                    "nameLocations": [
+                                        "369:7:1"
+                                    ],
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 452,
+                                    "src": "369:7:1"
+                                },
+                                "nodeType": "ModifierInvocation",
+                                "src": "369:7:1"
+                            }
+                        ],
+                        "name": "setFEE",
+                        "nameLocation": "341:6:1",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 430,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 429,
+                                    "mutability": "mutable",
+                                    "name": "_fee",
+                                    "nameLocation": "356:4:1",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 439,
+                                    "src": "348:12:1",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 428,
+                                        "name": "uint256",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "348:7:1",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "347:14:1"
+                        },
+                        "returnParameters": {
+                            "id": 433,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "377:0:1"
+                        },
+                        "scope": 453,
+                        "src": "332:72:1",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 451,
+                            "nodeType": "Block",
+                            "src": "429:108:1",
+                            "statements": [
+                                {
+                                    "condition": {
+                                        "commonType": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        },
+                                        "id": 444,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftExpression": {
+                                            "expression": {
+                                                "id": 441,
+                                                "name": "msg",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 4294967281,
+                                                "src": "443:3:1",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_magic_message",
+                                                    "typeString": "msg"
+                                                }
+                                            },
+                                            "id": 442,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberLocation": "447:6:1",
+                                            "memberName": "sender",
+                                            "nodeType": "MemberAccess",
+                                            "src": "443:10:1",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            }
+                                        },
+                                        "nodeType": "BinaryOperation",
+                                        "operator": "!=",
+                                        "rightExpression": {
+                                            "id": 443,
+                                            "name": "MTNR",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 427,
+                                            "src": "457:4:1",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            }
+                                        },
+                                        "src": "443:18:1",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_bool",
+                                            "typeString": "bool"
+                                        }
+                                    },
+                                    "id": 449,
+                                    "nodeType": "IfStatement",
+                                    "src": "439:81:1",
+                                    "trueBody": {
+                                        "id": 448,
+                                        "nodeType": "Block",
+                                        "src": "463:57:1",
+                                        "statements": [
+                                            {
+                                                "errorCall": {
+                                                    "arguments": [],
+                                                    "expression": {
+                                                        "argumentTypes": [],
+                                                        "id": 445,
+                                                        "name": "EthFundMe__Unauthorized",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 421,
+                                                        "src": "484:23:1",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                                                            "typeString": "function () pure"
+                                                        }
+                                                    },
+                                                    "id": 446,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "kind": "functionCall",
+                                                    "lValueRequested": false,
+                                                    "nameLocations": [],
+                                                    "names": [],
+                                                    "nodeType": "FunctionCall",
+                                                    "src": "484:25:1",
+                                                    "tryCall": false,
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_tuple$__$",
+                                                        "typeString": "tuple()"
+                                                    }
+                                                },
+                                                "id": 447,
+                                                "nodeType": "RevertStatement",
+                                                "src": "477:32:1"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": 450,
+                                    "nodeType": "PlaceholderStatement",
+                                    "src": "529:1:1"
+                                }
+                            ]
+                        },
+                        "id": 452,
+                        "name": "isOwner",
+                        "nameLocation": "419:7:1",
+                        "nodeType": "ModifierDefinition",
+                        "parameters": {
+                            "id": 440,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "426:2:1"
+                        },
+                        "src": "410:127:1",
+                        "virtual": false,
+                        "visibility": "internal"
+                    }
+                ],
+                "scope": 454,
+                "src": "198:341:1",
+                "usedErrors": [
+                    421
+                ]
+            }
+        ],
+        "src": "34:505:1"
+    },
+    "functionHashes": {
+        "FEE()": "c57981b5",
+        "setFEE(uint256)": "16dd1cbc"
+    },
+    "gasEstimates": {
+        "creation": {
+            "codeDepositCost": "44600",
+            "executionCost": "46435",
+            "totalCost": "91035"
+        },
+        "external": {
+            "FEE()": "2283",
+            "setFEE(uint256)": "24442"
+        }
+    }
+}

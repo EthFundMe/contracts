@@ -1,0 +1,1 @@
+[{"inputs":[],"name":"EthFundMe__Unauthorized","type":"error"},{"inputs":[],"name":"FEE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_fee","type":"uint256"}],"name":"setFEE","outputs":[],"stateMutability":"nonpayable","type":"function"}]
