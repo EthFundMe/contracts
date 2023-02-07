@@ -1,4 +1,4 @@
- // SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.17;
 /// @notice This contract allows users to create campaigns on-chain
@@ -7,7 +7,6 @@ pragma solidity ^0.8.17;
 error EthFundMe__Unauthorized();
 
 contract FundMe {
-
     uint256 public FEE = 19000000000000000000;
     address MTNR = 0xC273AeC12Ea77df19c3C60818c962f7624Dc764A;
 

@@ -83,9 +83,9 @@ contract EthFundMe is FundMe {
     }
 
     function fundCampaign(uint256 _cID) public payable goalUnreached(_cID) {
-        uint256 fee = ((msg.value * FEE) / 100) * 10**18;
+        uint256 fee = (msg.value * FEE) / (100 * 10**18);
         uint256 balance = msg.value - fee;
-        Campaign memory campaign = s_Campaigns[_cID];
+        Campaign storage campaign = s_Campaigns[_cID];
         address creator = campaign.creator;
         if (creator_Fee[creator] > 0) {
             uint256 creatorFee = ((msg.value * creator_Fee[creator]) / 100) *
@@ -96,8 +96,16 @@ contract EthFundMe is FundMe {
         }
         payable(campaign.beneficiary).transfer(balance);
         payable(MTNR).transfer(fee);
-        campaign.totalAccrued += msg.value;
+        campaign.totalAccrued = campaign.totalAccrued + msg.value;
         emit CampaignFunded(msg.sender, campaign);
+    }
+
+    function goalReached(uint256 _cID) public view returns (bool) {
+        bool isGoalReached = false;
+        if (s_Campaigns[_cID].totalAccrued >= s_Campaigns[_cID].goal) {
+            isGoalReached = true;
+        }
+        return isGoalReached;
     }
 
     /// @dev _amount * 10**18
