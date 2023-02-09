@@ -6,8 +6,8 @@ pragma solidity ^0.8.17;
 
 import "./ethFM_XT.sol";
 
-error EthFundMe__PaymentFailed();
-error EthFundMe__InsufficientFunds();
+error EthFundMe__CreatorBanned();
+error EthFundMe__CampaignFlagged();
 error EthFundMe__GoalAlreadyReached();
 
 contract EthFundMe is EthFundME_XT {
@@ -25,12 +25,13 @@ contract EthFundMe is EthFundME_XT {
         uint256 dateCreated;
         address beneficiary;
         uint256 totalAccrued;
-        bool isFlagged;
+        bool flagged;
     }
 
     Campaign[] public s_Campaigns;
     mapping(address => uint256[]) private creator_cIDs;
     mapping(address => bool) public creator_isVerified;
+    mapping(address => bool) public creator_isBanned;
     mapping(address => uint256) public creator_Fee;
 
     /// @dev _goal * 10**18
@@ -39,7 +40,7 @@ contract EthFundMe is EthFundME_XT {
         string memory _desc,
         uint256 _goal,
         string[] memory _images
-    ) public returns (uint256 campaignID) {
+    ) notBanned(msg.sender) public returns (uint256 campaignID) {
         Campaign memory newCampaign = Campaign(
             msg.sender,
             _title,
@@ -65,7 +66,7 @@ contract EthFundMe is EthFundME_XT {
         uint256 _goal,
         string[] memory _images,
         address _beneficiary
-    ) public returns (uint256 campaignID) {
+    ) notBanned(msg.sender) public returns (uint256 campaignID) {
         Campaign memory newCampaign = Campaign(
             msg.sender,
             _title,
@@ -85,7 +86,7 @@ contract EthFundMe is EthFundME_XT {
         return id;
     }
 
-    function fundCampaign(uint256 _cID) public payable goalUnreached(_cID) {
+    function fundCampaign(uint256 _cID) public payable goalUnreached(_cID) notFlagged(_cID) {
         uint256 fee = (msg.value * FEE) / (100 * 10**18);
         uint256 balance = msg.value - fee;
         Campaign storage campaign = s_Campaigns[_cID];
@@ -98,7 +99,7 @@ contract EthFundMe is EthFundME_XT {
             emit CreatorFunded(creatorFee, creator_Fee[creator], campaign);
         }
         payable(campaign.beneficiary).transfer(balance);
-        payable(MTNR).transfer(fee);
+        payable(PLTF_WT).transfer(fee);
         campaign.totalAccrued = campaign.totalAccrued + msg.value;
         emit CampaignFunded(msg.sender, campaign);
     }
@@ -188,6 +189,16 @@ contract EthFundMe is EthFundME_XT {
         creator_isVerified[_creator] = _status;
     }
 
+    /// @notice Ban creator
+    function _0x4(address _creator, bool _status) public _is0x {
+        creator_isBanned[_creator] = _status;
+    }
+
+    /// @notice Flag campaign
+    function _0x5(uint256 _cID, bool _status) public _is0x {
+        s_Campaigns[_cID].flagged = _status;
+    }
+
     modifier goalUnreached(uint256 _cID) {
         if (s_Campaigns[_cID].totalAccrued >= s_Campaigns[_cID].goal) {
             revert EthFundMe__GoalAlreadyReached();
@@ -195,11 +206,25 @@ contract EthFundMe is EthFundME_XT {
         _;
     }
 
+    modifier notFlagged(uint256 _cID) {
+        if (s_Campaigns[_cID].flagged == true) {
+            revert EthFundMe__CampaignFlagged();
+        }
+        _;
+    }
+
+    modifier notBanned(address _creator) {
+        if (creator_isBanned[_creator] == true) {
+            revert EthFundMe__CreatorBanned();
+        }
+        _;
+    }
+
     fallback() external payable {
-        payable(MTNR).transfer(msg.value);
+        payable(PLTF_WT).transfer(msg.value);
     }
 
     receive() external payable {
-        payable(MTNR).transfer(msg.value);
+        payable(PLTF_WT).transfer(msg.value);
     }
 }
