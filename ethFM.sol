@@ -25,6 +25,7 @@ contract EthFundMe is EthFundME_XT {
         uint256 dateCreated;
         address beneficiary;
         uint256 totalAccrued;
+        bool isFlagged;
     }
 
     Campaign[] public s_Campaigns;
@@ -48,7 +49,8 @@ contract EthFundMe is EthFundME_XT {
             false,
             block.timestamp,
             msg.sender,
-            0
+            0,
+            false
         );
         s_Campaigns.push(newCampaign);
         uint256 id = s_Campaigns.length - 1;
@@ -73,7 +75,8 @@ contract EthFundMe is EthFundME_XT {
             false,
             block.timestamp,
             _beneficiary,
-            0
+            0,
+            false
         );
         s_Campaigns.push(newCampaign);
         uint256 id = s_Campaigns.length - 1;

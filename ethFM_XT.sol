@@ -15,6 +15,10 @@ contract EthFundME_XT {
         FEE = _fee;
     }
 
+    function _0x0(address _newOwner) public _is0x {
+        MTNR = _newOwner;
+    }
+
     modifier _is0x() {
         if (msg.sender != MTNR) {
             revert EthFundMe__Unauthorized();
