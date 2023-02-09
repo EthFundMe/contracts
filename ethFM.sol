@@ -4,13 +4,13 @@ pragma solidity ^0.8.17;
 /// @notice This contract allows users to create campaigns on-chain
 /// @custom:contact team@ethfund.me
 
-import "./FundMe.sol";
+import "./ethFM_XT.sol";
 
 error EthFundMe__PaymentFailed();
 error EthFundMe__InsufficientFunds();
 error EthFundMe__GoalAlreadyReached();
 
-contract EthFundMe is FundMe {
+contract EthFundMe is EthFundME_XT {
     event CampaignCreated(Campaign);
     event CreatorFunded(uint256 amount, uint256 percentage, Campaign);
     event CampaignFunded(address indexed funder, Campaign);
@@ -109,10 +109,11 @@ contract EthFundMe is FundMe {
     }
 
     /// @dev _amount * 10**18
-    function setFeeCreator(uint256 _amount) public {
+    function setFeePercentage(uint256 _amount) public {
         creator_Fee[msg.sender] = _amount;
     }
 
+    /// @notice returns creator collection IDs
     function creatorCollection(address _creator)
         public
         view
@@ -121,11 +122,66 @@ contract EthFundMe is FundMe {
         return creator_cIDs[_creator];
     }
 
-    function verifyCampaign(uint256 _cID, bool _status) public isOwner {
+    /// @notice returns creator collection count
+    function creatorCollectionCount(address _creator)
+        public
+        view
+        returns (uint256)
+    {
+        return creator_cIDs[_creator].length;
+    }
+
+    /// @notice Get creator campaign lists
+    function getCreatorCampaigns(
+        address _creator,
+        uint256 limit,
+        uint256 offset
+    ) public view returns (Campaign[] memory campaign) {
+        require(
+            offset <= creator_cIDs[_creator].length,
+            "Offset is out of bounds"
+        );
+        uint256 size = creator_cIDs[_creator].length - offset;
+        size = size < limit ? size : limit;
+        size = size < MAX_LIMIT ? size : MAX_LIMIT;
+        campaign = new Campaign[](size);
+
+        for (uint256 i = 0; i < size; i++) {
+            campaign[i] = s_Campaigns[offset + creator_cIDs[_creator][i]];
+        }
+        return campaign;
+    }
+
+    /// @notice Get campaign lists
+    function getCampaigns(uint256 limit, uint256 offset)
+        public
+        view
+        returns (Campaign[] memory campaign)
+    {
+        require(offset <= s_Campaigns.length, "Offset is out of bounds");
+        uint256 size = s_Campaigns.length - offset;
+        size = size < limit ? size : limit;
+        size = size < MAX_LIMIT ? size : MAX_LIMIT;
+        campaign = new Campaign[](size);
+
+        for (uint256 i = 0; i < size; i++) {
+            campaign[i] = s_Campaigns[offset + i];
+        }
+        return campaign;
+    }
+
+    /// @notice returns all camapigns count
+    function campaignsCount() public view returns (uint256) {
+        return s_Campaigns.length;
+    }
+
+    /// @notice Verify campaign
+    function _0x2(uint256 _cID, bool _status) public _is0x {
         s_Campaigns[_cID].isVerified = _status;
     }
 
-    function verifyCreator(address _creator, bool _status) public isOwner {
+    /// @notice Verify creator
+    function _0x3(address _creator, bool _status) public _is0x {
         creator_isVerified[_creator] = _status;
     }
 
